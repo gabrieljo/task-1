@@ -19,8 +19,28 @@ The [DownloadLog](orm/DownloadLog.php) model represents a log entry denoting a u
 ### Questions:
 
 1. What does the `final` keyword mean the [DownloadLog](orm/DownloadLog.php) model? What are the implications in removing the `final` declaration?
-2. The current of implementation of [DownloadLog](orm/DownloadLog.php) contains a fatal error. What is it, and how would it be resolved?
+*Code block*
+```php
+A. final means not allow to inherit  to child class. after removing the final keyword, the class can be extended to other child class. 
+```
 
+2. The current of implementation of [DownloadLog](orm/DownloadLog.php) contains a fatal error. What is it, and how would it be resolved?
+*Code block*
+```php
+Fatal error: Uncaught Error: Class 'DownloadLog' not found in /Users/GabrielJO/Documents/work/serato/test/php-coding-task/index.php:8 Stack trace: #0 {main} thrown in /Users/GabrielJO/Documents/work/serato/test/php-coding-task/index.php on line 8”
+There are several answers, One of the which I used,  “autoload”
+1. add composer.json autoload option like
+"autoload": {
+    "psr-4": {
+        "Orm\\": "orm",
+    }
+},
+2. add require method to load autoload file
+	“require(__DIR__ . "/vendor/autoload.php”);”
+3. add namespace top of the DownloadLog(it was already placed
+4. add “use Orm\DownloadLog” 
+5. isModifed and getter setter is not implemented, implements those methods.
+```
 ### Coding task 1:
 
 Extend the current implementation so that the following code block provides the output as described:
