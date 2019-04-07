@@ -1,0 +1,19 @@
+{
+    "name": "gabrieljo/php-coding-task",
+    "authors": [
+        {
+            "name": "Gabriel Jo",
+            "email": "gabrieljo1302@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Orm\\": "orm",
+            "Traits\\":"traits",
+            "Controller\\":"controller"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
